@@ -1,8 +1,8 @@
 ## Deep Linear Discriminant Analysis (DeepLDA)
 
-This repository implements the work proposed by [Matthias Dorfer, Rainer Kelz and Gerhard Widmer](https://arxiv.org/abs/1511.04707). It adds a LDA layer to usual CNNs and is able to train with CNNs in an end-to-end fashion. \
+This repository implements the work proposed by [Matthias Dorfer, Rainer Kelz and Gerhard Widmer](https://arxiv.org/abs/1511.04707). It adds a LDA layer to usual CNNs and is able to train with CNNs in an end-to-end fashion.
 
-I have tested DeepLDA with Resnet18 and compared it with vanilla Resnet18 regulated by a cross-entropy loss. The result of Resnet18-DeepLDA is really competetive. The table below displays the accuracies of two models (Trained for 20 epochs, refer the code for details). \
+I have tested DeepLDA with Resnet18 and compared it with vanilla Resnet18 regulated by a cross-entropy loss. The result of Resnet18-DeepLDA is really competetive. The table below displays the accuracies of two models on CIFAR10 dataset. (Trained for 20 epochs, refer the code for details).
 
 |    Accuracy    |    Vanilla Resnet18    |    Resnet18+DeepLDA    |
 |:--------------:|:----------------------:|:----------------------:|
@@ -26,4 +26,4 @@ https://github.com/bfshi/DeepLDA
 
 
 ### Also helpful:
-https://sthalles.github.io/fisher-linear-discriminant/ \
+https://sthalles.github.io/fisher-linear-discriminant/

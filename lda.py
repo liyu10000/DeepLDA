@@ -88,13 +88,19 @@ class LDA(nn.Module):
         X_new = X.matmul(self.scalings_)
         return X_new[:, :self.n_components]
 
-    def predict(self, X):       
-        proba = X.matmul(self.coef_.t()) + self.intercept_
-        return torch.argmax(proba, dim=1)
+    def predict(self, X):
+        logit = X.matmul(self.coef_.t()) + self.intercept_
+        return torch.argmax(logit, dim=1)
 
     def predict_proba(self, X):
-        proba = X.matmul(self.coef_.t()) + self.intercept_
+        logit = X.matmul(self.coef_.t()) + self.intercept_
+        proba = nn.functional.softmax(logit, dim=1)
         return proba
+
+    def predict_log_proba(self, X):
+        logit = X.matmul(self.coef_.t()) + self.intercept_
+        log_proba = nn.functional.log_softmax(logit, dim=1)
+        return log_proba
 
 
 
