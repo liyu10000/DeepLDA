@@ -108,6 +108,7 @@ if __name__ == '__main__':
     import numpy as np
     np.set_printoptions(precision=4, suppress=True)
     from sklearn.datasets import load_iris
+    from sklearn.metrics import accuracy_score
 
     features, labels = load_iris(return_X_y=True)
     print(features.shape, labels.shape)
@@ -126,6 +127,11 @@ if __name__ == '__main__':
     lda = LDA(n_classes, lamb)
     _, evals = lda(X, y)
 
+    # calculate lda loss
     loss = lda_loss(evals, n_classes, n_eig, margin)
     loss.backward()
     print('finished backward')
+
+    # use LDA as classifier
+    y_pred = lda.predict(X)
+    print('accuracy on training data', accuracy_score(y, y_pred))
